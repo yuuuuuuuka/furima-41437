@@ -29,7 +29,6 @@ has_many :orders
 | item_situation_id     | integer | null: false|
 | prefecture_id         | integer | null: false |
 | category_id           | integer | null: false |
-| shipping_day_id       | integer | null: false |
 | shipping_location_id  | integer | null: false |
 | load_id               | integer | null: false |
 ### Association
