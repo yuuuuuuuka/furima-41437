@@ -1,7 +1,7 @@
 # README
 
 
-## users
+## usersテーブル
 
 | Column               | Type   | Options     |
 | ------------------   | ------ | ----------- |
@@ -10,15 +10,15 @@
 | encysted_password    | string | null: false |  
 | birthday             | date   | null: false |
 | first_name           | string | null: false |
-| last_name            | string | null: false |    
-
-
-
+| last_name            | string | null: false | 
+| kana_first_name      | string | null: false |
+| kana_last_name       | string | null: false |   
+### Association
 has_many :items
 has_many :orders
-has_many :addresses
 
-## items
+
+## itemsテーブル
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
@@ -27,46 +27,41 @@ has_many :addresses
 | price                | integer     | null: false |
 | user                 | references  | null: false,foreign_key: true |
 | item_situation_id     | integer | null: false|
+| prefecture_id         | integer | null: false |
 | category_id           | integer | null: false |
 | shipping_day_id       | integer | null: false |
 | shipping_location_id  | integer | null: false |
 | load_id               | integer | null: false |
-
-
+### Association
 has_one :order
-belong_to :user
+belongs_to :user
 
 
 
-## orders
+## ordersテーブル
 
 | Column         | Type       | Options                        |
 | ------         | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
 | item           | references | null: false, foreign_key: true |
-| image          | text       | null: false,foreign_key: true |
 
-
-
-
-
-belong_to :user
-belong_to :item
+### Association
+belongs_to :user
+belongs_to :item
 has_one :address
 
-## Addresses
+## Addressesテーブル
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
 | postal_code          | string      | null: false |
-| prefecture_id        | integer      | null: false |
 | city                 | string      | null: false |
 | address              | string      | null: false |
 | building             | string      |             |
 | phone_number         | string      | null: false |
 | order                | references  | null: false,foreign_key: true |
 
-belong_to :order
+belongs_to :order
 
 
 
