@@ -1,29 +1,18 @@
 # README
 
 
-
-
-## order
-
-| Column         | Type       | Options                        |
-| ------         | ---------- | ------------------------------ |
-| user_address   | references | null: false, foreign_key: true |
-| items_price       | references | null: false, foreign_key: true |
-
-
-belong_to :user
-belong_to :item
-
-
-   
-
 ## users
 
 | Column               | Type   | Options     |
 | ------------------   | ------ | ----------- |
-| name                 | string | null: false,unique: true |
-| email                | string | null: false |
-|encysted_password     | string | null: false |      <!---不足->
+| name                 | string | null: false |
+| email                | string | null: false,unique: true |
+| encysted_password    | string | null: false |  
+| password             | string | null: false |
+| birth_day            | string | null: false |
+| kanji_name           | string | null: false |
+| kana_name            | string | null: false |    
+
 
 
 has_many :items
@@ -33,38 +22,69 @@ has_many :orders
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
+| image                | text        | null: false |
 | name                 | string      | null: false |
 | explanation          | text        | null: false |
 | price                | integer     | null: false |
 | category＿id         | string      | null: false |
-| user_name            | references  | null: false,foreign_key: true | <!--外部キーと名前を修正-->
+| user                 | references  | null: false,foreign_key: true | ><カラム不足>
 
-has_one :orders
+has_one :order
 belong_to :user
-belong_to :addresses
 
 
-## Address
+
+## orders
+
+| Column         | Type       | Options                        |
+| ------         | ---------- | ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
+| comment        | text       | null: false |
+| favorite       | integer    | null: false |
+
+
+
+  ＜商品購入履歴テーブルには「どのユーザーが」「どの商品を」購入したかのみを保存＞
+
+
+belong_to :user
+belong_to :item
+belong_to :address
+
+## Addresses
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
-| card_number          | integer     | null: false |
-| date_of_expiry       | integer     | null: false |
-| security＿code       | integer     | null: false |
 | postal_code          | string      | null: false |
-| prefecture           | string        | null: false |
-| city                 | string     | null: false |
+| prefecture           | string      | null: false |
+| city                 | string      | null: false |
 | address              | string      | null: false |
-| building             | string        | null: false |
+| building             | string      | null: false |
 | phone_number         | string      | null: false |
-| order_id             | references  | null: false,foreign_key: true |
+| order                | references  | null: false,foreign_key: true |
+| price                | references  | null: false,foreign_key: true |
+
+belong_to :items
+belong_to :order
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:   address  buliding
+Things you may want to cover:  
 
 
 * Ruby version
