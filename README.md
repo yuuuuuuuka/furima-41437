@@ -27,7 +27,6 @@ has_many :orders
 | price                | integer     | null: false |
 | user                 | references  | null: false,foreign_key: true |
 | item_situation_id     | integer | null: false|
-| prefecture_id         | integer | null: false |
 | category_id           | integer | null: false |
 | shipping_day_id       | integer | null: false |
 | shipping_location_id  | integer | null: false |
@@ -55,6 +54,7 @@ has_one :address
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
 | postal_code          | string      | null: false |
+| prefecture_id        | integer      | null: false |
 | city                 | string      | null: false |
 | address              | string      | null: false |
 | building             | string      |             |
