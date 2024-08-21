@@ -8,26 +8,30 @@
 | name                 | string | null: false |
 | email                | string | null: false,unique: true |
 | encysted_password    | string | null: false |  
-| password             | string | null: false |
-| birth_day            | string | null: false |
-| kanji_name           | string | null: false |
-| kana_name            | string | null: false |    
+| birthday             | date   | null: false |
+| first_name           | string | null: false |
+| last_name            | string | null: false |    
 
 
 
 has_many :items
 has_many :orders
+has_many :addresses
 
 ## items
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
-| image                | text        | null: false |
 | name                 | string      | null: false |
 | explanation          | text        | null: false |
 | price                | integer     | null: false |
-| category＿id         | string      | null: false |
-| user                 | references  | null: false,foreign_key: true | ><カラム不足>
+| user                 | references  | null: false,foreign_key: true |
+| item_situation_id     | integer | null: false|
+| category_id           | integer | null: false |
+| shipping_day_id       | integer | null: false |
+| shipping_location_id  | integer | null: false |
+| load_id               | integer | null: false |
+
 
 has_one :order
 belong_to :user
@@ -40,32 +44,28 @@ belong_to :user
 | ------         | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
 | item           | references | null: false, foreign_key: true |
-| comment        | text       | null: false |
-| favorite       | integer    | null: false |
+| image          | text       | null: false,foreign_key: true |
 
 
 
-  ＜商品購入履歴テーブルには「どのユーザーが」「どの商品を」購入したかのみを保存＞
 
 
 belong_to :user
 belong_to :item
-belong_to :address
+has_one :address
 
 ## Addresses
 
 | Column               | Type        | Options     |
 | -----------------    | ------      | ----------- |
 | postal_code          | string      | null: false |
-| prefecture           | string      | null: false |
+| prefecture_id        | integer      | null: false |
 | city                 | string      | null: false |
 | address              | string      | null: false |
-| building             | string      | null: false |
+| building             | string      |             |
 | phone_number         | string      | null: false |
 | order                | references  | null: false,foreign_key: true |
-| price                | references  | null: false,foreign_key: true |
 
-belong_to :items
 belong_to :order
 
 
