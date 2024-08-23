@@ -43,6 +43,8 @@ RSpec.describe User, type: :model do
       end
 
       it '重複したemailが存在する場合は登録できない' do
+        raise 'User save failed, check validations and FactoryBot setup' unless @user.save
+
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
