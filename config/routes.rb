@@ -6,3 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
+
+#ログイン機能・新規登録機能にアクセスまで完了
+#このあとは、会員登録・ログインっボタンを押した時にエラーハンドリングができるというところからスタート
