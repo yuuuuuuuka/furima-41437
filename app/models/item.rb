@@ -19,10 +19,12 @@ class Item < ApplicationRecord
   validates :shipping_location_id, numericality: { other_than: 1, message: "can't be blank" }
 
   validates :price, numericality: {
-    greater_than_or_equal_to: 300,
-    less_than_or_equal_to: 9_999_999,
-    message: 'must be between ¥300 and ¥9,999,999'
-  }, presence: true
+                      only_integer: true,
+                      greater_than_or_equal_to: 300,
+                      less_than_or_equal_to: 9_999_999,
+                      message: 'must be between ¥300 and ¥9,999,999'
+                    },
+                    presence: true
 
   validates :name, presence: true
   validates :image, presence: true
