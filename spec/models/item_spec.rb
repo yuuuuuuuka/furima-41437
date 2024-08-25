@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'カテゴリーが未選択では出品できない' do
-        @item.category_id = '---'
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
@@ -38,19 +38,19 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item situation can't be blank")
       end
       it '配送料の負担が未選択では出品できない' do
-        @item.load_id = '---'
+        @item.load_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Load can't be blank")
       end
 
       it '発送元の地域が未選択では出品できない' do
-        @item.prefecture_id = '---'
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it '発送までの日数が未選択では出品できない' do
-        @item.shipping_location_id = '---'
+        @item.shipping_location_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping location can't be blank")
       end
@@ -87,7 +87,7 @@ RSpec.describe Item, type: :model do
       it '価格が半角英数字混合では出品できない' do
         @item.price = '3000yen'
         @item.valid?
-        expect(@item.errors.full_messages).to include('must be a half-width number')
+        expect(@item.errors.full_messages).to include('Price must be between ¥300 and ¥9,999,999')
       end
       it 'ユーザーが紐づいていないと出品できない' do
         @item.user = nil
