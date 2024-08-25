@@ -33,7 +33,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品の状態が未選択では出品できない' do
-        @item.item_situation_id = '---'
+        @item.item_situation_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Item situation can't be blank")
       end
