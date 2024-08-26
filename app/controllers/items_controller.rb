@@ -21,6 +21,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def destory
+  end
+
   private
 
   def item_params
