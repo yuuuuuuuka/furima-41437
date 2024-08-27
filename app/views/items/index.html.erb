@@ -138,7 +138,7 @@
           <%= image_tag item.image , class: "item-img" %>
          
           
-          <% if item.id == nil%>
+          <% if @items.any? == false  %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
