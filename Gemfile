@@ -84,4 +84,8 @@ gem  'devise'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'  
+gem 'payjp'  # Ruby（Ruby on Rails）のサーバーサイドから、決済処理を行うときに必要となる
+gem 'gon'#注）本来は秘密情報を扱うためのものではない
+#サーバーサイドのデータをJavaScriptに渡すための便利なGem
+#例えば、ユーザー情報、設定値、計算結果など
