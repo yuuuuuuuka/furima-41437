@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "items#index"
-  resources :items do
-  resources :orders, only: [:index, :create]
- end 
-
+  resources :items
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
-#itemの子ネストにorderを入れた方が良い？
-#アソシエーションのみで十分？
-#addressはoderコントローラの中にあるからrルーティングに持たせる必要ない
+
+
+#ログイン機能・新規登録機能にアクセスまで完了
+#このあとは、会員登録・ログインっボタンを押した時にエラーハンドリングができるというところからスタート
