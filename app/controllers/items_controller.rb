@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def authorize_user
-    return if @item.user == current_user
+    return if @item.user == current_user && !@item.purchased?
 
     redirect_to root_path
   end
