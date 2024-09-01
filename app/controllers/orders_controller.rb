@@ -57,7 +57,6 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root_if_invalid_access
-    @item = Item.find(params[:item_id])
     return unless current_user == @item.user || @item.purchased?
 
     redirect_to root_path
