@@ -24,9 +24,7 @@ app/assets/stylesheets/items/new.css %>
         </p>
         <%= f.file_field :image,id:"item-image" %>
       </div>
-        <% if @item.image.attached? %>
-          <%= image_tag @item.image.variant(resize: "432x506") %>
-        <% end %>    
+           
       
     </div>
     <%# /商品画像が残っている状態にできない %>
